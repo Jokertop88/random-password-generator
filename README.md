@@ -51,14 +51,14 @@ Code:
 
 ```python
 passwrd = password_gen()
-print(f'->> {passwrd}')
+print(passwrd)
 ```
 
 Output:
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py 
-->> Sb429#U
+Sb429#U
 ```
 
 
@@ -69,14 +69,21 @@ Code:
 ```python
 lenght = 15
 passwrd = password_gen(lenght)
-print(f'->> {passwrd}')
+print(passwrd)
+```
+or with parameter naming:
+
+```python
+lenght = 15
+passwrd = password_gen(id_lenght = lenght)
+print(passwrd)
 ```
 
 Output:
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py 
-->> 0SsX~xYFSIVHo7Z
+0SsX~xYFSIVHo7Z
 ```
 
 
@@ -86,14 +93,14 @@ Code:
 ```python
 alpha = 'xyz-654'
 passwrd = password_gen(alphabet = alpha)
-print(f'->> {passwrd}')
+print(passwrd)
 ```
 
 Output:
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py
-->> 5z545zy
+5z545zy
 ```
 #### Calling the password_gen() function with specified lenght and a default alphabet parameters:
 
@@ -102,14 +109,23 @@ Code:
 lenght = 40
 alpha = 'abxy01'
 passwrd = password_gen(lenght,alpha)
-print(f'->> {passwrd}')
+print(passwrd)
+```
+
+or with parameter naming:
+
+```python
+lenght = 40
+alpha = 'abxy01'
+passwrd = password_gen(alphabet = alpha, id_lenght = lenght)
+print(passwrd)
 ```
 
 Output:
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py 
-->> 0000xbaaxxyx00yya0xa1x1yxabyy0aaxb100x1b
+0000xbaaxxyx00yya0xa1x1yxabyy0aaxb100x1b
 ```
 
 
