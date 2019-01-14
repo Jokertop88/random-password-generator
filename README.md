@@ -3,18 +3,6 @@
 Usually in webpages with account management you can ask for a temporal password to recover your account in case you forgot your real password.
 This function can help to generate those random paswords.
 
-password_gen(object)
- 1.  ```password_gen() -> str```
-Desc.
-
- 2.  ```password_gen(int) -> str```
-
- 3. ```password_gen(alphabet = String) -> str```
-
- 4. ```password_gen(lenght,alpha)```
-Desc.
-
-
 
 ### Code:
 
@@ -56,41 +44,73 @@ def password_gen(id_lenght = 7, alphabet = string.ascii_letters + string.digits)
     return id
 ```
 
-### Calling the password_gen() function with default parameters:
+### Calls
+#### Calling the password_gen() function with default parameters:
+
+Code:
 
 ```python
 passwrd = password_gen()
-print(f'->> Password with default function: "{passwrd}"')
+print(f'->> {passwrd}')
 ```
 
-### Output
+Output:
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py 
-->> Password with default function: "Sb429#U"
+->> Sb429#U
 ```
 
 
-### Calling the password_gen() function with specified lenght and a default alphabet parameters:
+#### Calling the password_gen() function with specified lenght and a default alphabet parameters:
+
+Code:
 
 ```python
 lenght = 15
 passwrd = password_gen(lenght)
-print(f'->> Password with function with lenght of {lenght}: "{passwrd}"')
+print(f'->> {passwrd}')
 ```
 
-### Output
+Output:
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py 
-->> Password with function with lenght of 15: "0SsX~xYFSIVHo7Z"
+->> 0SsX~xYFSIVHo7Z
 ```
 
 
----
-# Password Generator.
+#### Calling the password_gen() function with specified lenght and a default alphabet parameters:
 
-Pending.
+Code:
+```python
+alpha = 'xyz-654'
+passwrd = password_gen(alphabet = alpha)
+print(f'->> {passwrd}')
+```
+
+Output:
+
+```shell
+Terminal$ python3 universally_unique_id_gen.py
+->> 5z545zy
+```
+#### Calling the password_gen() function with specified lenght and a default alphabet parameters:
+
+Code:
+```python
+lenght = 40
+alpha = 'abxy01'
+passwrd = password_gen(lenght,alpha)
+print(f'->> {passwrd}')
+```
+
+Output:
+
+```shell
+Terminal$ python3 universally_unique_id_gen.py 
+->> 0000xbaaxxyx00yya0xa1x1yxabyy0aaxb100x1b
+```
 
 
 
