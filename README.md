@@ -22,64 +22,69 @@ Importing Libraries:
 
 ```python
 import string
-import calendar
-from datetime import datetime
 from random import randrange
 ```
 
 Declaring the function:
 
 ```python
-## Function to generate random UUIDs
-def uuid_gen():
-    
-    # Lenght is 36 (32 Hexadecimal characters and 4 hyphens)
-    id_lenght = 36
-    alphabet = '0123456789abcdef'
-    
-    # Getting the timestamp in hex-- used for the first 8 chars on the UUID key
-    d = datetime.utcnow()
-    unixtime = calendar.timegm(d.utctimetuple())
-    timestamp_hex = hex(unixtime).split('x')[1]
-    #print(timestamp_hex)
-
-    id_lenght -= len(timestamp_hex)
+# Default values for this function are a lenght of 7 chars for the password and an alphabeth of ASCII letters and numbers.
+def password_gen(id_lenght = 7, alphabet = string.ascii_letters + string.digits):
 
     id_list = []
 
-    #generate a list of random hex characters
+    # for the default alphabet this function will include an special random character on a random position on the password. 
+    special_char_index = -1 
+    if alphabet == string.ascii_letters + string.digits:
+        lenght_punctiation = len(string.punctuation) 
+        range_punct = randrange(lenght_punctiation)
+        special_char = string.punctuation[range_punct]
+        special_char_index = randrange(id_lenght)
+
+
     for i in range(id_lenght):
-        # conditional to add hyphens on the UUID code
-        if i in [0,5,10,15]:
-            id_list.append('-')
+        index = randrange(len(alphabet))
+
+        # in this part is where the special character gets added to the password (only if the default alphabed is used)
+        if i == special_char_index:
+            id_list.append(special_char)
         else:
-            index = randrange(len(alphabet))
             id_list.append(alphabet[index])
 
-    #concatenate the timestamp to the randomly generated key
-    id = timestamp_hex + ''.join(id_list)    
+    id = ''.join(id_list)    
+
     return id
 ```
 
-Calling the function to get the Random UUID:
+### Calling the password_gen() function with default parameters:
 
 ```python
-
-## calling the function to generate generate and print the Key.
-UUID = uuid_gen()
-print(f'Random UUID : {UUID}')
-print(f'Lenght: {len(UUID)}')
-
+passwrd = password_gen()
+print(f'->> Password with default function: "{passwrd}"')
 ```
 
 ### Output
 
 ```shell
 Terminal$ python3 universally_unique_id_gen.py 
-Random UUID : 5c3ce67c-f3fa-5d15-b6a3-9d7a6e5e72ce
-Lenght: 36
+->> Password with default function: "Sb429#U"
 ```
 
+
+### Calling the password_gen() function with specified lenght and a default alphabet parameters:
+
+```python
+lenght = 15
+passwrd = password_gen(lenght)
+print(f'->> Password with function with lenght of {lenght}: "{passwrd}"')
+```
+
+### Output
+
+```shell
+Terminal$ python3 universally_unique_id_gen.py 
+->> Password with function with lenght of 15: "0SsX~xYFSIVHo7Z"
+```
 
 
 ---
